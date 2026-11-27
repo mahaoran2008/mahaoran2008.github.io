@@ -130,6 +130,29 @@
 <p>加了**的参数会以字典的形式导入。</p>
 <p><img src="/2026/11/27/blog-26-11-27/image-20261127214940234.png" alt="image-20261127214940234"></p>
 <p>如果单独出现星号 *****，则星号 ***** 后的参数必须用关键字传入</p>
+<h2 id="python正则表达式"><a href="#python正则表达式" class="headerlink" title="python正则表达式"></a>python正则表达式</h2><p>使用 re 模块来处理正则表达式</p>
+<p>re.match 尝试从字符串的起始位置匹配一个模式，如果不是起始位置匹配成功的话，match() 就返回 None</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">re.match(pattern, string, flags=0)</span><br></pre></td></tr></table></figure>
+
+<p>其中</p>
+<p>pattern   匹配的正则表达式</p>
+<p>string    要匹配的字符串</p>
+<p>flags    用于控制正则表达式的匹配方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line"></span><br><span class="line">print(re.match(&#x27;www&#x27;, &#x27;www.runoob.com&#x27;).span())  </span><br><span class="line">print(re.match(&#x27;com&#x27;, &#x27;www.runoob.com&#x27;))  </span><br></pre></td></tr></table></figure>
+
+<p>(0,3),www在起始位匹配，对字符编号。对应（0，3）</p>
+<p>None,未在起始位匹配，返回None</p>
+<p>re.search 扫描整个字符串并返回第一个成功的匹配</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">re.search(pattern, string, flags=0)</span><br></pre></td></tr></table></figure>
+
+<p>其中</p>
+<p>pattern    匹配的正则表达式</p>
+<p>string    要匹配的字符串</p>
+<p>flags&#x3D;0    用于控制正则表达式的匹配方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line"></span><br><span class="line">print(re.match(&#x27;www&#x27;, &#x27;www.runoob.com&#x27;).span())</span><br><span class="line">print(re.match(&#x27;com&#x27;, &#x27;www.runoob.com&#x27;))  </span><br></pre></td></tr></table></figure>
+
+<p>(0,3),www匹配，对字符编号。对应（0，3）。在起始位</p>
+<p>(11,14),com匹配，对字符编号。对应（11，14）。不在起始位</p>
 
       
     </div>
@@ -146,9 +169,9 @@
 
 
   
-    <article id="post-blog 26-11-26" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-blog-26-11-26" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/11/26/blog%2026-11-26/" class="article-date">
+    <a href="/2026/11/26/blog-26-11-26/" class="article-date">
   <time class="dt-published" datetime="2026-11-26T13:03:46.000Z" itemprop="datePublished">2026-11-26</time>
 </a>
     
@@ -160,7 +183,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/11/26/blog%2026-11-26/">blog26.11.26</a>
+      <a class="p-name article-title" href="/2026/11/26/blog-26-11-26/">blog26.11.26</a>
     </h1>
   
 
@@ -245,7 +268,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://mahaoran2008.github.io/2026/11/26/blog%2026-11-26/" data-id="cuidc3rRrGCfhl-DnLTIHXxbU" data-title="blog26.11.26" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://mahaoran2008.github.io/2026/11/26/blog-26-11-26/" data-id="cuidaDKRiBe1rvvJV5uGKihGj" data-title="blog26.11.26" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -523,7 +546,7 @@
           </li>
         
           <li>
-            <a href="/2026/11/26/blog%2026-11-26/">blog26.11.26</a>
+            <a href="/2026/11/26/blog-26-11-26/">blog26.11.26</a>
           </li>
         
           <li>
