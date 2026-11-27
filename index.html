@@ -74,31 +74,58 @@
     <article id="post-blog-26-11-27" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/11/27/blog-26-11-27/" class="article-date">
-  <time class="dt-published" datetime="2026-11-27T08:56:14.000Z" itemprop="datePublished">2026-11-27</time>
+  <time class="dt-published" datetime="2026-11-27T08:56:14.885Z" itemprop="datePublished">2026-11-27</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/11/27/blog-26-11-27/">blog 26 11 27</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="不使用库的情况下进行base64解码"><a href="#不使用库的情况下进行base64解码" class="headerlink" title="不使用库的情况下进行base64解码"></a>不使用库的情况下进行base64解码</h2><p><img src="/2026/11/27/blog-26-11-27/image-20261127170009755.png" alt="image-20261127170009755"></p>
+        <p>title: blog 26 11 27<br>date: 2026-11-27 16:56:14<br>tags:</p>
+<h2 id="不使用库的情况下进行base64解码"><a href="#不使用库的情况下进行base64解码" class="headerlink" title="不使用库的情况下进行base64解码"></a>不使用库的情况下进行base64解码</h2><p><img src="/2026/11/27/blog-26-11-27/image-20261127170009755.png" alt="image-20261127170009755"></p>
+<h2 id="第一周考核"><a href="#第一周考核" class="headerlink" title="第一周考核"></a>第一周考核</h2><p>while循环计算1到100的和</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">s = 0</span><br><span class="line">n = 1</span><br><span class="line">while n &lt;= 100 :</span><br><span class="line"></span><br><span class="line">  s = n + s</span><br><span class="line"></span><br><span class="line">  n += 1</span><br><span class="line"></span><br><span class="line">print(&quot;一到一百求和&quot; , s )</span><br></pre></td></tr></table></figure>
+
+<p>求斐波那契数列列中第n个数的值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def f(x):</span><br><span class="line">  if x == 1:</span><br><span class="line">    return 1</span><br><span class="line">  if x == 2:</span><br><span class="line">    return 1</span><br><span class="line">  return f(x-1) + f(x-2)</span><br><span class="line">x = int(input(&quot;输入&quot;))</span><br><span class="line">print (f(x))</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h3><p>函数代码块以 def 开头，加函数标识符名称和（）。任何传入参数和自变量必须放在圆括号中间，圆括号之间可以用于定义参数。函数内容以：起始。return结束函数，选择性地返回一个值给调用方，不带表达式的 return 相当于返回 None。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def max(a,b):</span><br><span class="line">    if a&gt;b:</span><br><span class="line">      return a</span><br><span class="line">    else:</span><br><span class="line">      return b</span><br><span class="line">a = input(&quot;输入a:&quot;)</span><br><span class="line">b = input(&quot;输入b:&quot;)</span><br><span class="line">print(max(a,b))</span><br></pre></td></tr></table></figure>
+
+<p>用python传不可变数据，通过id（）查看变化</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def change(a):</span><br><span class="line">    print(id(a))</span><br><span class="line">    a = 10</span><br><span class="line">    print(id(a))</span><br><span class="line">a = 1</span><br><span class="line">print(id(a))</span><br><span class="line">change(a)</span><br></pre></td></tr></table></figure>
+
+<p>用python传可变数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def change(list1):</span><br><span class="line">  list1.append([1,2,3,4])</span><br><span class="line">  print (list1)</span><br><span class="line">  return</span><br><span class="line">list1 = [5,6,7,8]</span><br><span class="line">change(list1)</span><br></pre></td></tr></table></figure>
+
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>必需参数:必须输入一个参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def p(s):</span><br><span class="line">  print(s)</span><br><span class="line">  return</span><br><span class="line">s = input(&quot;输入&quot;)</span><br><span class="line">p(s)</span><br></pre></td></tr></table></figure>
+
+<p>关键字参数:关键字参数和函数调用关系紧密，函数调用使用关键字参数来确定传入的参数值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def p(s):</span><br><span class="line">    print(s)</span><br><span class="line">    return</span><br><span class="line">p(s=&quot;菜鸟教程&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>默认参数:如果没有传递参数，则会使用默认参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def p(name, age=35):</span><br><span class="line">    print(&quot;名字: &quot;, name)</span><br><span class="line">    print(&quot;年龄: &quot;, age)</span><br><span class="line">    return</span><br><span class="line">p(age=50, name=&quot;abc&quot;)</span><br><span class="line">p(name=&quot;ABC&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>不定长参数:需要一个函数能处理比当初声明时更多的参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def p(a, *b):</span><br><span class="line">    print(&quot;输出: &quot;)</span><br><span class="line">    print(a)</span><br><span class="line">    print(b)</span><br><span class="line">p(70, 60, 50)</span><br></pre></td></tr></table></figure>
+
+<p>加了*的参数会以元组(tuple)的形式导入，存放所有未命名的变量参数。</p>
+<p>如果在函数调用时没有指定参数，它就是一个空元组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def p(a, **b):</span><br><span class="line">    print(&quot;输出: &quot;)</span><br><span class="line">    print(a)</span><br><span class="line">    print(b)</span><br><span class="line">p(1, x=2,y=3)</span><br></pre></td></tr></table></figure>
+
+<p>加了**的参数会以字典的形式导入。</p>
+<p><img src="/2026/11/27/blog-26-11-27/image-20261127214940234.png" alt="image-20261127214940234"></p>
+<p>如果单独出现星号 *****，则星号 ***** 后的参数必须用关键字传入</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://mahaoran2008.github.io/2026/11/27/blog-26-11-27/" data-id="cuidO2QSMs6e4VpenXvTmJ9Es" data-title="blog 26 11 27" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://mahaoran2008.github.io/2026/11/27/blog-26-11-27/" data-id="cuidO2QSMs6e4VpenXvTmJ9Es" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -483,7 +510,7 @@
       <ul>
         
           <li>
-            <a href="/2026/11/27/blog-26-11-27/">blog 26 11 27</a>
+            <a href="/2026/11/27/blog-26-11-27/">(no title)</a>
           </li>
         
           <li>
