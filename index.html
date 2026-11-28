@@ -71,6 +71,165 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-blog-26-11-28" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/11/28/blog-26-11-28/" class="article-date">
+  <time class="dt-published" datetime="2026-11-28T00:59:20.000Z" itemprop="datePublished">2026-11-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/11/28/blog-26-11-28/">blog 26 11 28</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><p>Python 使用 lambda 来创建匿名函数,即不再使用def形式定义。</p>
+<p>lambda 的主体是一个表达式，而不是一个代码块。仅仅能在 lambda 表达式中封装有限的逻辑进去。</p>
+<p>lambda 函数拥有自己的命名空间，且不能访问自己参数列表之外或全局命名空间里的参数</p>
+<p>lambda 函数的语法只包含一个语句</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lambda arguments: expression</span><br></pre></td></tr></table></figure>
+
+<p>其中</p>
+<p>lambda是python的关键字</p>
+<p>arguments是参数列表，可以包含零个或多个参数，但必须在冒号(<code>:</code>)前指定</p>
+<p>expression是一个表达式，用于计算并返回函数的结果</p>
+<p>设置两数之和</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s = lambda a, b: a + b</span><br><span class="line">a = int(input(&quot;输入一个a:&quot;))</span><br><span class="line">b = int(input(&quot;输入一个b:&quot;))</span><br><span class="line">print( s (a,b) )</span><br></pre></td></tr></table></figure>
+
+<p>可以将匿名函数封装在一个函数内，这样可以使用同样的代码来创建多个匿名函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def beilv(n):</span><br><span class="line">    return lambda a : a * n</span><br><span class="line">one = beilv(1)</span><br><span class="line">two = beilv(2)</span><br><span class="line">print(one(3))</span><br><span class="line">print(two(4))</span><br></pre></td></tr></table></figure>
+
+<h2 id="强制位置参数"><a href="#强制位置参数" class="headerlink" title="强制位置参数"></a>强制位置参数</h2><p> &#x2F; 用来指明函数形参必须使用指定位置参数，不能使用关键字参数的形式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def f(a, b, /, c, d, *, e, f):</span><br><span class="line">    print(a, b, c, d, e, f)</span><br></pre></td></tr></table></figure>
+
+<p> 其中a 和 b 必须使用指定位置参数，c 或 d 可以是位置形参或关键字形参，而 e 和 f 要求为关键字形参</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(10, 20, 30, d=40, e=50, f=60) #正确</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f(10, b=20, c=30, d=40, e=50, f=60)   # b 不能使用关键字参数的形式</span><br><span class="line">f(10, 20, 30, 40, 50, f=60)           # e 必须使用关键字参数的形式</span><br></pre></td></tr></table></figure>
+
+<h2 id="迭代器与生成器"><a href="#迭代器与生成器" class="headerlink" title="迭代器与生成器"></a>迭代器与生成器</h2><p>使用iter()创建迭代器对象，再使用next()获取元素</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">num = [1,2,3]</span><br><span class="line">n = iter(num)</span><br><span class="line">print(next(n))</span><br></pre></td></tr></table></figure>
+
+<p>迭代三次num中元素用尽时，再输出会返回stopiteration</p>
+<p>也可以用for语句，next进行遍历</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">num = [1,2,3]</span><br><span class="line">n = iter(num)</span><br><span class="line">for i in n:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+
+<p>StopIteration 异常用于标识迭代的完成，防止出现无限循环的情况</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list = [1, 2, 3]</span><br><span class="line">it = iter(list)  # 创建迭代器对象</span><br><span class="line">while True:</span><br><span class="line">    try:</span><br><span class="line">        print(next(it))</span><br><span class="line">    except StopIteration:</span><br><span class="line">        break</span><br></pre></td></tr></table></figure>
+
+<p>使用了 <strong>yield</strong> 的函数被称为生成器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def num(n):</span><br><span class="line">   while n &gt;0:</span><br><span class="line">       yield n</span><br><span class="line">       n -= 1</span><br><span class="line">n = num(10)</span><br><span class="line">for x in n :</span><br><span class="line">    print(x)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="python数据结构"><a href="#python数据结构" class="headerlink" title="python数据结构"></a>python数据结构</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a = [1,2,2,3,3,3,4,4,9,6]</span><br><span class="line">print(a.count(3),a.count(9),a.count(11))</span><br><span class="line">a.insert(0,0)</span><br><span class="line">a.append(10)</span><br><span class="line">a.remove(1)</span><br><span class="line">print(a)</span><br><span class="line">print(a.index(2))</span><br><span class="line">a.reverse()</span><br><span class="line">print(a)</span><br><span class="line">a.sort()</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+
+<p>.count(x)   返回x在列表的出现次数</p>
+<p>.insert(x,y)   在x索引位置上添加y</p>
+<p>.append(x)   末尾添加x</p>
+<p>.remove(x)   移除第一个x</p>
+<p>.index(x)   返回第一个值为 x 的元素的索引</p>
+<p>.reverse()   倒排元素</p>
+<p>.sort()   元素排序</p>
+<h2 id="将列表当做栈使用"><a href="#将列表当做栈使用" class="headerlink" title="将列表当做栈使用"></a>将列表当做栈使用</h2><h5 id="创建一个空栈"><a href="#创建一个空栈" class="headerlink" title="创建一个空栈"></a>创建一个空栈</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stack = []</span><br></pre></td></tr></table></figure>
+
+<h5 id="压入"><a href="#压入" class="headerlink" title="压入"></a>压入</h5><p>使用 append() 方法将元素添加到栈的顶端</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">stack = []</span><br><span class="line">stack.append(1)</span><br><span class="line">stack.append(2)</span><br><span class="line">stack.append(3)</span><br><span class="line">print(stack) #[1,2,3]</span><br></pre></td></tr></table></figure>
+
+<h5 id="弹出"><a href="#弹出" class="headerlink" title="弹出"></a>弹出</h5><p>使用 pop() 方法移除并返回栈顶元素</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stack = [1,2,3]</span><br><span class="line">print(stack.pop()) #3</span><br><span class="line">print(stack) # [1，2]</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看栈顶元素"><a href="#查看栈顶元素" class="headerlink" title="查看栈顶元素"></a>查看栈顶元素</h5><p>直接访问列表的最后一个元素</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stack = [1,2,3]</span><br><span class="line">top = stack[-1]</span><br><span class="line">print(top)  # 输出: 3</span><br></pre></td></tr></table></figure>
+
+<h5 id="检查是否为空"><a href="#检查是否为空" class="headerlink" title="检查是否为空"></a>检查是否为空</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stack = [1,2,3]</span><br><span class="line">is_empty = len(stack) == 0</span><br><span class="line">print(is_empty)  # 输出: False</span><br></pre></td></tr></table></figure>
+
+<h5 id="获取栈的大小"><a href="#获取栈的大小" class="headerlink" title="获取栈的大小"></a>获取栈的大小</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stack = [1,2,3]</span><br><span class="line">size = len(stack)</span><br><span class="line">print(size)  # 输出: 3</span><br></pre></td></tr></table></figure>
+
+<h3 id="列表推导式"><a href="#列表推导式" class="headerlink" title="列表推导式"></a>列表推导式</h3><p>通常应用程序将一些操作应用于某个序列的每个元素，用其获得的结果作为生成新列表的元素，或者根据确定的判定条件创建子序列</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vec = [2, 4, 6] </span><br><span class="line">print([3*x for x in vec]) #[6, 12, 18]</span><br><span class="line">print([[x,x**2] for x in vec]) #[[2, 4], [4, 16], [6, 36]]</span><br></pre></td></tr></table></figure>
+
+<p>也可以用 if 子句作为过滤器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vec = [2, 4, 6]</span><br><span class="line">print([[x,x**2] for x in vec if x &gt;3]) #[[4, 16], [6, 36]]</span><br></pre></td></tr></table></figure>
+
+<h3 id="del语句"><a href="#del语句" class="headerlink" title="del语句"></a>del语句</h3><p>使用 del 语句可以从一个列表中根据索引来删除一个元素，而不是值来删除元素</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = [1,3,42,8,4,2]</span><br><span class="line">del a[0]</span><br><span class="line">print(a) #[3, 42, 8, 4, 2]</span><br><span class="line">del a[1:3]</span><br><span class="line">print(a) #[3, 4, 2]</span><br><span class="line">del a[:]</span><br><span class="line">print(a) #[]</span><br></pre></td></tr></table></figure>
+
+<h1 id="Python-模块"><a href="#Python-模块" class="headerlink" title="Python 模块"></a>Python 模块</h1><h4 id="import"><a href="#import" class="headerlink" title="import"></a>import</h4><p>将常用的功能封装到模块中，可以在多个程序中重复使用</p>
+<p>模块可以避免命名冲突，不同模块中的同名函数或变量不会互相干扰</p>
+<p>将代码按功能划分到不同的模块中，使程序结构更清晰</p>
+<p>在源文件里使用import语句，即可使用python源文件</p>
+<p><img src="/2026/11/28/blog-26-11-28/image-20261128113736803.png" alt="image-20261128113736803"></p>
+<p><img src="/2026/11/28/blog-26-11-28/image-20261128113749383.png" alt="image-20261128113749383"></p>
+<p>输出结果为5</p>
+<p>也可以为模块起别名，使用as</p>
+<p><img src="/2026/11/28/blog-26-11-28/image-20261128140228053.png" alt="image-20261128140228053"></p>
+<p>如果只想引进模块中的某个函数，可以使用from…import…语句</p>
+<p><img src="/2026/11/28/blog-26-11-28/image-20261128135836339.png" alt="image-20261128135836339"></p>
+<p>输出结果为5</p>
+<p>如要把一个模块所有内容都引入当前命名空间，使用from…import *</p>
+<p>但是如果被引用模块中引用____all____&#x3D;[“f1”,”f2”]</p>
+<p>from…import *再引用时就只能引用f1,f2</p>
+<h3 id="包"><a href="#包" class="headerlink" title="包"></a>包</h3><p>多个模块整合进入包中，包记为____init____</p>
+<p>包的引入方式与模块类似</p>
+<h3 id="name-属性"><a href="#name-属性" class="headerlink" title="__ ___name_____属性"></a>__ ___name_____属性</h3><p>一个模块被另一个程序第一次引入时，其主程序将运行。</p>
+<p>如果我们想在模块被引入时，模块中的某一程序块不执行，我们可以用__ ___name_____属性来使该程序块仅在该模块自身运行时执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">   print(&#x27;程序自身在运行&#x27;)</span><br><span class="line">else:</span><br><span class="line">   print(&#x27;我来自另一模块&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>每个模块都有_name_____属性</p>
+<p>如果模块是被直接运行，<code>__name__</code> 的值为 <code>__main__</code></p>
+<p>如果模块是被导入的，<code>__name__</code> 的值为模块名</p>
+<p>如，创建一个名为 <code>module.py</code> 的文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;模块名称：&quot;, __name__)</span><br></pre></td></tr></table></figure>
+
+<p>在终端中直接运行 python module.py，会输出   模块名称： _<em><strong>main</strong></em></p>
+<p>通过导入模块进行输出     模块名称： module</p>
+<h5 id="if-name-“main“的作用：只有作为主程序运行时才执行"><a href="#if-name-“main“的作用：只有作为主程序运行时才执行" class="headerlink" title="if_name_&#x3D;&#x3D; “main“的作用：只有作为主程序运行时才执行"></a>if_name_&#x3D;&#x3D; “<strong><strong>main</strong></strong>“的作用：只有作为主程序运行时才执行</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def main():</span><br><span class="line">    print(&quot;程序开始运行&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2026/11/28/blog-26-11-28/image-20261128145716252.png" alt="image-20261128145716252"></p>
+<p>直接运行fei.py,      该脚本正在直接运行。</p>
+<p><img src="/2026/11/28/blog-26-11-28/image-20261128145735086.png" alt="image-20261128145735086"></p>
+<p>导入后运行，  该脚本作为模块被导入</p>
+<h5 id="实际应用：将功能代码与运行入口分离"><a href="#实际应用：将功能代码与运行入口分离" class="headerlink" title="实际应用：将功能代码与运行入口分离"></a>实际应用：将功能代码与运行入口分离</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def add(a, b):</span><br><span class="line">    return a + b</span><br><span class="line"></span><br><span class="line">def multiply(a, b):</span><br><span class="line">    return a * b</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    print(&quot;加法结果：&quot;, add(10, 5))</span><br><span class="line">    print(&quot;乘法结果：&quot;, multiply(10, 5))</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>直接运行，加法结果： 15  乘法结果： 50</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import calculator</span><br><span class="line"></span><br><span class="line">result = calculator.add(3, 7)</span><br><span class="line"></span><br><span class="line">print(&quot;计算结果：&quot;, result)</span><br></pre></td></tr></table></figure>
+
+<p>运行     计算结果： 10</p>
+<h4 id="dir-函数"><a href="#dir-函数" class="headerlink" title="dir() 函数"></a>dir() 函数</h4><p>如果要查看模块内定义的所有名称，可以借用dir()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import math</span><br><span class="line">print(dir(math))</span><br><span class="line">[&#x27;__doc__&#x27;, &#x27;__loader__&#x27;, &#x27;__name__&#x27;, &#x27;__package__&#x27;, &#x27;__spec__&#x27;, &#x27;acos&#x27;, &#x27;acosh&#x27;, &#x27;asin&#x27;, &#x27;asinh&#x27;, &#x27;atan&#x27;, &#x27;atan2&#x27;, &#x27;atanh&#x27;, &#x27;cbrt&#x27;, &#x27;ceil&#x27;, &#x27;comb&#x27;, &#x27;copysign&#x27;, &#x27;cos&#x27;, &#x27;cosh&#x27;, &#x27;degrees&#x27;, &#x27;dist&#x27;, &#x27;e&#x27;, &#x27;erf&#x27;, &#x27;erfc&#x27;, &#x27;exp&#x27;, &#x27;exp2&#x27;, &#x27;expm1&#x27;, &#x27;fabs&#x27;, &#x27;factorial&#x27;, &#x27;floor&#x27;, &#x27;fma&#x27;, &#x27;fmod&#x27;, &#x27;frexp&#x27;, &#x27;fsum&#x27;, &#x27;gamma&#x27;, &#x27;gcd&#x27;, &#x27;hypot&#x27;, &#x27;inf&#x27;, &#x27;isclose&#x27;, &#x27;isfinite&#x27;, &#x27;isinf&#x27;, &#x27;isnan&#x27;, &#x27;isqrt&#x27;, &#x27;lcm&#x27;, &#x27;ldexp&#x27;, &#x27;lgamma&#x27;, &#x27;log&#x27;, &#x27;log10&#x27;, &#x27;log1p&#x27;, &#x27;log2&#x27;, &#x27;modf&#x27;, &#x27;nan&#x27;, &#x27;nextafter&#x27;, &#x27;perm&#x27;, &#x27;pi&#x27;, &#x27;pow&#x27;, &#x27;prod&#x27;, &#x27;radians&#x27;, &#x27;remainder&#x27;, &#x27;sin&#x27;, &#x27;sinh&#x27;, &#x27;sqrt&#x27;, &#x27;sumprod&#x27;, &#x27;tan&#x27;, &#x27;tanh&#x27;, &#x27;tau&#x27;, &#x27;trunc&#x27;, &#x27;ulp&#x27;]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如果没有给定参数，那么 dir() 函数会罗列出当前定义的所有名称</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(dir())</span><br><span class="line">[&#x27;__builtins__&#x27;, &#x27;__cached__&#x27;, &#x27;__doc__&#x27;, &#x27;__file__&#x27;, &#x27;__loader__&#x27;, &#x27;__name__&#x27;, &#x27;__package__&#x27;, &#x27;__spec__&#x27;]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="对于函数阶层的计算"><a href="#对于函数阶层的计算" class="headerlink" title="对于函数阶层的计算"></a>对于函数阶层的计算</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def f(n):</span><br><span class="line">    if n == 1:</span><br><span class="line">        return 1</span><br><span class="line">    return n * f(n-1)</span><br><span class="line">print(f(5))</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://mahaoran2008.github.io/2026/11/28/blog-26-11-28/" data-id="cuidaBIVh9DOh1bOjkKRIOct5" data-title="blog 26 11 28" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-blog-26-11-27" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/11/27/blog-26-11-27/" class="article-date">
@@ -193,18 +352,7 @@
       
         <h2 id="简单的base64编码"><a href="#简单的base64编码" class="headerlink" title="简单的base64编码"></a>简单的base64编码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import base64</span><br><span class="line"></span><br><span class="line">s = input(&quot;输入:&quot;)</span><br><span class="line">s += &quot;=&quot; * (-len(s) % 4)</span><br><span class="line">print(base64.b64decode(s).decode(&quot;utf-8&quot;))</span><br><span class="line"></span><br><span class="line">v = input(&quot;输入:&quot;)</span><br><span class="line">print(base64.b64encode(v.encode(&quot;utf-8&quot;)).decode(&quot;utf-8&quot;))</span><br></pre></td></tr></table></figure>
 
-<h2 id="python的迭代器与生成器"><a href="#python的迭代器与生成器" class="headerlink" title="python的迭代器与生成器"></a>python的迭代器与生成器</h2><p>迭代器对象从集合的第一个元素开始访问，直到所有的元素被访问完结束。迭代器只能往前不会后退。<br>迭代器有两个基本的方法：iter() 和 next()。字符串，列表或元组对象都可用于创建迭代器：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">list=[1,2,3,4]</span><br><span class="line">it = iter(list)</span><br><span class="line">print (next(it)) #1 / for x in it:  print (x, end=&quot; &quot;) </span><br><span class="line"></span><br><span class="line">import sys         </span><br><span class="line">list=[1,2,3,4]</span><br><span class="line">it = iter(list)    </span><br><span class="line">while True:</span><br><span class="line">    try:</span><br><span class="line">        print (next(it))</span><br><span class="line">    except StopIteration:</span><br><span class="line">        sys.exit()</span><br></pre></td></tr></table></figure>
-
-<h5 id="StopIteration-异常用于标识迭代的完成，防止出现无限循环的情况"><a href="#StopIteration-异常用于标识迭代的完成，防止出现无限循环的情况" class="headerlink" title="StopIteration 异常用于标识迭代的完成，防止出现无限循环的情况"></a>StopIteration 异常用于标识迭代的完成，防止出现无限循环的情况</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class MyNumbers:</span><br><span class="line">  def __iter__(self):</span><br><span class="line">    self.a = 1</span><br><span class="line">    return self</span><br><span class="line"></span><br><span class="line">  def __next__(self):</span><br><span class="line">    if self.a &lt;= 20:</span><br><span class="line">      x = self.a</span><br><span class="line">      self.a += 1</span><br><span class="line">      return x</span><br><span class="line">    else:</span><br><span class="line">      raise StopIteration</span><br><span class="line"></span><br><span class="line">myclass = MyNumbers()</span><br><span class="line">myiter = iter(myclass)</span><br><span class="line"></span><br><span class="line">for x in myiter:</span><br><span class="line">  print(x)</span><br></pre></td></tr></table></figure>
-
-<h5 id="创建迭代器"><a href="#创建迭代器" class="headerlink" title="创建迭代器"></a>创建迭代器</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class MyNumbers:</span><br><span class="line">  def __iter__(self):</span><br><span class="line">    self.a = 1</span><br><span class="line">    return self</span><br><span class="line"></span><br><span class="line">  def __next__(self):</span><br><span class="line">    x = self.a</span><br><span class="line">    self.a += 1</span><br><span class="line">    return x</span><br><span class="line"></span><br><span class="line">myclass = MyNumbers()</span><br><span class="line">myiter = iter(myclass)</span><br><span class="line"></span><br><span class="line">for x in myiter:</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
-
-<h5 id="生成器yield-是一个关键字，用于定义生成器函数，生成器函数是一种特殊的函数，可以在迭代过程中逐步产生值，而不是一次性返回所有结果"><a href="#生成器yield-是一个关键字，用于定义生成器函数，生成器函数是一种特殊的函数，可以在迭代过程中逐步产生值，而不是一次性返回所有结果" class="headerlink" title="生成器yield 是一个关键字，用于定义生成器函数，生成器函数是一种特殊的函数，可以在迭代过程中逐步产生值，而不是一次性返回所有结果"></a>生成器yield 是一个关键字，用于定义生成器函数，生成器函数是一种特殊的函数，可以在迭代过程中逐步产生值，而不是一次性返回所有结果</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def countdown(n):</span><br><span class="line">    while n &gt; 0:</span><br><span class="line">        yield n</span><br><span class="line">        n-= 1</span><br><span class="line"></span><br><span class="line">generator = countdown(5)</span><br><span class="line"></span><br><span class="line">print(next(generator))</span><br><span class="line">print(next(generator))</span><br><span class="line">print(next(generator))</span><br><span class="line"></span><br><span class="line">for value in generator:</span><br><span class="line">    print(value)  </span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="虚拟机指令"><a href="#虚拟机指令" class="headerlink" title="虚拟机指令"></a>虚拟机指令</h2><p>1，ls ， ls -la :列出当前目录路文件</p>
+<h5 id=""><a href="#" class="headerlink" title=""></a></h5><h2 id="虚拟机指令"><a href="#虚拟机指令" class="headerlink" title="虚拟机指令"></a>虚拟机指令</h2><p>1，ls ， ls -la :列出当前目录路文件</p>
 <p>2，pwd ：当前工作目录路径</p>
 <p>3，cd &#x2F;&gt;&#x2F;&gt; ：切换工作目录</p>
 <p>4，mkdir  &gt;文件名：创建新目录</p>
@@ -542,6 +690,10 @@
       <ul>
         
           <li>
+            <a href="/2026/11/28/blog-26-11-28/">blog 26 11 28</a>
+          </li>
+        
+          <li>
             <a href="/2026/11/27/blog-26-11-27/">blog26.11.27</a>
           </li>
         
@@ -555,10 +707,6 @@
         
           <li>
             <a href="/2026/11/24/hello/">hello</a>
-          </li>
-        
-          <li>
-            <a href="/2026/11/23/hello-world/">Hello World</a>
           </li>
         
       </ul>
